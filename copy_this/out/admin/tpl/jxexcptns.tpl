@@ -45,9 +45,13 @@
         
         <div id="codeframe" style="border:1px solid #888; padding:4px; background-color:#efefef;height:500px;overflow-y: scroll;">
             <span style="">
-                [{foreach name=outer item=sLine from=$aContent}]
-                    [{ $sLine }]<br />
-                [{/foreach}]
+                [{if !$aContent}]
+                    <em>[{ oxmultilang ident="JXEXCPTNS_NOCONTENT" }]</em>
+                [{else}]
+                    [{foreach name=outer item=sLine from=$aContent}]
+                        [{ $sLine }]<br />
+                    [{/foreach}]
+                [{/if}]
             </span>
             <div id="eop"></div>
         </div>
