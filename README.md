@@ -12,3 +12,6 @@ Usage
   
   
 Tested in OXID version 4.7, 4.8 and 4.9.
+
+## Screenshot ##
+![](https://github.com/job963/jxExcptns/raw/master/docs/img/ExceptionLogfile.png)
