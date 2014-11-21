@@ -11,4 +11,4 @@ Usage
   If you open the menu "System", you will see the the new menu item "Exception Log".
   
   
-Tested in OXID 4.6/4.7/5.0
+Tested in OXID version 4.7, 4.8 and 4.9.
