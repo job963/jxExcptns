@@ -18,19 +18,17 @@
  *
  * @link      https://github.com/job963/jxExcptns
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
- * @copyright (C) Joachim Barthel 2012-2013
+ * @copyright (C) Joachim Barthel 2012-2014
  *
  */
  
 class jxexcptns extends oxAdminView
 {
     protected $_sThisTemplate = "jxexcptns.tpl";
+    
     public function render()
     {
         parent::render();
-        $oSmarty = oxUtilsView::getInstance()->getSmarty();
-        $oSmarty->assign( "oViewConf", $this->_aViewData["oViewConf"]);
-        $oSmarty->assign( "shop", $this->_aViewData["shop"]);
         $myConfig = oxRegistry::get("oxConfig");
         $sLogsDir = $myConfig->getLogsDir();
 
@@ -59,7 +57,12 @@ class jxexcptns extends oxAdminView
             $aContent = array();
         }
         
-        $oSmarty->assign("aContent",$aContent);
+        $oModule = oxNew('oxModule');
+        $oModule->load('jxexcptns');
+        $this->_aViewData["sModuleId"] = $oModule->getId();
+        $this->_aViewData["sModuleVersion"] = $oModule->getInfo('version');
+        
+        $this->_aViewData["aContent"] = $aContent;
 
         return $this->_sThisTemplate;
     }
@@ -74,12 +77,12 @@ class jxexcptns extends oxAdminView
         
         $aSearch = array(
             '/(.*)(Faulty component|Connection Error)(.*)/',
-            '/(.*)\\[0]:(.*)/',
+            '/(.*)\\[(.*)]:(.*)/',
             );
 
         $aReplace = array(
             "{$sStylePreHeader}$0{$sStylePostHeader}",
-            "$1[0]: {$sStylePreError}$2{$sStylePostError}",
+            "$1[$2]: {$sStylePreError}$3{$sStylePostError}",
             );
         
         $sText = preg_replace($aSearch, $aReplace, $sText);
@@ -97,6 +100,10 @@ class jxexcptns extends oxAdminView
         header("Content-Type: application/csv-tab-delimited-table");
         header("Content-Disposition: attachment; filename=\"$sLogFile\"");
         readfile($sLogsDir.$sLogFile);
+        
+        exit();
+
+        return;
     }
     
 }

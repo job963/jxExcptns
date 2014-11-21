@@ -1,12 +1,7 @@
 <?php
-$sLangName  = "Deutsch";
-$iLangNr    = 0;
-$aLang = array(
-    'jxexcptns_menu'          => 'Exception Log',
-    'JXEXCPTNS_TITLE'         => 'Exception Log',
-    'JXEXCPTNS_DOWNLOAD'      => 'Download',
-    'JXEXCPTNS_NOCONTENT'     => 'Keine Eintr&auml;ge vorhanden.',
-    'charset'                 => 'ISO-8859-15',
-);
+
+$nPathEnd = strpos( $_SERVER['SCRIPT_FILENAME'], '/admin/index.php' );
+$sShopPath = substr( $_SERVER['SCRIPT_FILENAME'], 0, $nPathEnd );
+include $sShopPath . '/modules/jxexcptns/application/views/admin/de/jxexcptns_lang.php';
 
 ?>

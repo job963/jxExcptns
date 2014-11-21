@@ -1,4 +1,3 @@
-[{*debug*}]
 [{include file="headitem.tpl" title="GENERAL_ADMIN_TITLE"|oxmultilangassign box=" "}]
 
 [{*<script type="text/javascript" src="[{$shop->basetpldir}]sortable/sortable.js"></script>
@@ -22,6 +21,8 @@
 <body onresize="resizeCodeFrame();">
 <div class="center" style="height:100%;">
     <h1>[{ oxmultilang ident="JXEXCPTNS_TITLE" }]</h1>
+    <div style="position:absolute;top:4px;right:8px;color:gray;font-size:0.9em;border:1px solid gray;border-radius:3px;">&nbsp;[{$sModuleId}]&nbsp;[{$sModuleVersion}]&nbsp;</div>
+
     <p>
         <form name="transfer" id="transfer" action="[{ $shop->selflink }]" method="post">
             [{ $shop->hiddensid }]

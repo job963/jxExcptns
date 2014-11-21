@@ -16,17 +16,17 @@ $aModule = array(
                         'en'=>'Module for displaying of exception_log.txt.'
                         ),
     'thumbnail'    => 'jxexcptns.png',
-    'version'      => '0.1.1',
+    'version'      => '0.1.2',
     'author'       => 'Joachim Barthel',
     'url'          => 'https://github.com/job963/jxExcptns',
-    'email'        => 'jbarthel@qualifire.de',
+    'email'        => 'jobarthel@gmail.com',
     'extend'       => array(
                         ),
     'files'        => array(
         'jxexcptns' => 'jxexcptns/application/controllers/admin/jxexcptns.php'
                         ),
     'templates'    => array(
-        'jxexcptns.tpl' => 'jxexcptns/views/admin/tpl/jxexcptns.tpl'
+        'jxexcptns.tpl' => 'jxexcptns/application/views/admin/tpl/jxexcptns.tpl'
                         ),
     'settings' => array(
                         )
